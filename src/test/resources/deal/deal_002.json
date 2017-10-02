@@ -1,0 +1,12 @@
+{
+  "id": "729b301f-b1e5-42f8-b069-24c678731b2d",
+  "merchantId": "e2fc2fe3-0d9b-4311-a9e7-43f5cf5f1427",
+  "title": "Another Deal title",
+  "startAt": "2017-03-01T00:00:00Z",
+  "endAt": "2017-03-05T00:00:00Z",
+  "products": [
+    "31b3cc5c-d5d2-4f94-95a8-ea9ebf729a76",
+    "3658d3ff-2f11-45a8-996b-d0e32d0dd8d8",
+    "c7ae2929-bc65-4dfe-87d6-39b6259744d0"
+  ]
+}
