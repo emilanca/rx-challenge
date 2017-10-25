@@ -2,6 +2,7 @@ package org.sample.rx.deals.model;
 
 import com.google.common.base.MoreObjects;
 
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -11,15 +12,15 @@ public class Deal {
     private UUID id;
     private UUID merchantId;
     private String title;
-    private OffsetDateTime startAt;
-    private OffsetDateTime endAt;
+    private Instant startAt;
+    private Instant endAt;
     private List<Product> products;
 
     public Deal() {
     }
 
-    public Deal(UUID id, UUID merchantId, String title, OffsetDateTime startAt,
-        OffsetDateTime endAt, List<Product> products) {
+    public Deal(UUID id, UUID merchantId, String title, Instant startAt,
+                Instant endAt, List<Product> products) {
         this.id = id;
         this.merchantId = merchantId;
         this.title = title;
@@ -52,19 +53,19 @@ public class Deal {
         this.title = title;
     }
 
-    public OffsetDateTime getStartAt() {
+    public Instant getStartAt() {
         return startAt;
     }
 
-    public void setStartAt(OffsetDateTime startAt) {
+    public void setStartAt(Instant startAt) {
         this.startAt = startAt;
     }
 
-    public OffsetDateTime getEndAt() {
+    public Instant getEndAt() {
         return endAt;
     }
 
-    public void setEndAt(OffsetDateTime endAt) {
+    public void setEndAt(Instant endAt) {
         this.endAt = endAt;
     }
 
