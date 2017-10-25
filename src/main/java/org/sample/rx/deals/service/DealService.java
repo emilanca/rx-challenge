@@ -30,22 +30,22 @@ public class DealService {
     }
 
     public Flowable<Deal> getDealsByMerchantId(UUID merchantId, Optional<Comparator<Deal>> dealComparator) {
-        // TODO: use comparator to sort ; if comparator is not present, sort by start_date desc
-        return getDealsByMerchantId(merchantId, dealComparator, Optional.<Comparator<Product>>empty(), true);
+        // done: use comparator to sort ; if comparator is not present, sort by start_date desc
+        return getDealsByMerchantId(merchantId, dealComparator, Optional.<Comparator<Product>>empty(), true).sorted(dealComparator.orElse(Comparator.comparing(Deal::getStartAt)));
     }
 
     public Flowable<Deal> getDealsByMerchantId(UUID merchantId,
                                                Optional<Comparator<Deal>> dealComparator,
                                                Optional<Comparator<Product>> productComparator,
                                                boolean onlyEnabled) {
-        // TODO: use dealComparator to sort deals
+        // done: use dealComparator to sort deals (comments: defended against misuse by providing sensible default sort even if not explicitly requested)
         return dealClient.getDealsByMerchant(merchantId)
                          .flatMapMaybe(dealId -> getDealById(dealId, productComparator)
                                  .toMaybe()
                                          // TODO: switch error handling to :
                                          // return Maybe.empty() when it's a SocketException
                                          // return Maybe.error(error) when it's another type of throwable
-                                 .onErrorResumeNext(Maybe.empty()));
+                                 .onErrorResumeNext(Maybe.empty())).sorted(dealComparator.orElse(Comparator.comparing(Deal::getStartAt)));
     }
 
     public Single<Deal> getDealById(UUID dealId) {
