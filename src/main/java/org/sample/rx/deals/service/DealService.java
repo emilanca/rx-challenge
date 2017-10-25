@@ -7,7 +7,7 @@ import org.sample.rx.deals.client.response.ProductResponse;
 import org.sample.rx.deals.model.Deal;
 import org.sample.rx.deals.model.Product;
 
-import java.time.Instant;
+import java.time.OffsetDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -81,8 +81,8 @@ public class DealService {
         deal.setId(dealResponse.getId());
         deal.setMerchantId(dealResponse.getMerchantId());
         deal.setTitle(dealResponse.getTitle()); //2017-01-01T00:00:00Z
-        deal.setStartAt(Instant.parse(dealResponse.getStartAt()));
-        deal.setEndAt(Instant.parse(dealResponse.getEndAt()));
+        deal.setStartAt(OffsetDateTime.parse(dealResponse.getStartAt()));
+        deal.setEndAt(OffsetDateTime.parse(dealResponse.getEndAt()));
         return deal;
     }
 

@@ -12,15 +12,15 @@ public class Deal {
     private UUID id;
     private UUID merchantId;
     private String title;
-    private Instant startAt;
-    private Instant endAt;
+    private OffsetDateTime startAt;
+    private OffsetDateTime endAt;
     private List<Product> products;
 
     public Deal() {
     }
 
-    public Deal(UUID id, UUID merchantId, String title, Instant startAt,
-                Instant endAt, List<Product> products) {
+    public Deal(UUID id, UUID merchantId, String title, OffsetDateTime startAt,
+                OffsetDateTime endAt, List<Product> products) {
         this.id = id;
         this.merchantId = merchantId;
         this.title = title;
@@ -53,19 +53,19 @@ public class Deal {
         this.title = title;
     }
 
-    public Instant getStartAt() {
+    public OffsetDateTime getStartAt() {
         return startAt;
     }
 
-    public void setStartAt(Instant startAt) {
+    public void setStartAt(OffsetDateTime startAt) {
         this.startAt = startAt;
     }
 
-    public Instant getEndAt() {
+    public OffsetDateTime getEndAt() {
         return endAt;
     }
 
-    public void setEndAt(Instant endAt) {
+    public void setEndAt(OffsetDateTime endAt) {
         this.endAt = endAt;
     }
 
